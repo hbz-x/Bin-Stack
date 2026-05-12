@@ -1,13 +1,13 @@
 ---
 name: html-tech-diagram
-description: Generate self-contained HTML technical diagrams for protocols, packet structures, connection flows, and lifecycle states. Triggers on "html流程图", "html图", "生成html", "协议流程图", "数据包图", "连接流程", "生命周期图", "protocol diagram", "packet diagram", "html diagram".
+description: Generate self-contained HTML technical diagrams for code flows, system architectures, data structures, state machines, and any process with sequential or branching logic. Triggers on "html流程图", "html图", "生成html", "代码流程图", "系统架构图", "状态图", "流程图", "code flow diagram", "html diagram", "architecture diagram".
 metadata:
-  version: 1.0.0
+  version: 1.1.0
 ---
 
 # HTML Technical Diagram Generator
 
-生成自包含的 HTML 技术示意图，无需任何外部依赖，浏览器直接打开即可查看。专为协议流程、数据包结构、连接生命周期、系统架构等技术文档设计。
+生成自包含的 HTML 技术示意图，无需任何外部依赖，浏览器直接打开即可查看。适用于任何包含流程、分支、状态转换的代码逻辑或系统架构的可视化，包括但不限于：代码执行流程、请求处理管线、状态机、数据流转、模块交互、算法步骤、系统架构等。
 
 ## Workflow
 
@@ -24,9 +24,10 @@ metadata:
 ```
 
 示例：
-- `vless-reality-vision-flow.html`
-- `tcp-handshake-diagram.html`
-- `grpc-protocol-diagram.html`
+- `auth-login-flow.html`
+- `order-processing-diagram.html`
+- `request-pipeline-flow.html`
+- `state-machine-diagram.html`
 
 ---
 
@@ -62,13 +63,13 @@ metadata:
 
 | 颜色 | 语义 | 典型用途 |
 |------|------|---------|
-| blue | 客户端、请求方、信息 | 客户端角色、发送方标签 |
-| green | 服务端、成功、已完成 | 服务端角色、成功分支 |
-| orange | 外部系统、警告、中间人 | 第三方组件、告警 |
-| purple | 协议层、认证、抽象概念 | VLESS/协议处理、Auth 阶段 |
-| red | 错误、拒绝、关闭 | 失败分支、连接关闭 |
-| yellow/fef9c3 | 检测、决策、待定 | Vision Detection、判断节点 |
-| gray | 中性、TCP 底层、基础设施 | TCP 层、Idle 状态 |
+| blue | 发起方、输入、信息 | 调用方角色、请求发起、入口模块 |
+| green | 接收方、成功、已完成 | 处理完成、成功分支、输出结果 |
+| orange | 外部系统、警告、中间件 | 第三方服务、中间件处理、告警 |
+| purple | 抽象层、认证、核心逻辑 | 业务逻辑处理、Auth 阶段、框架层 |
+| red | 错误、拒绝、终止 | 失败分支、异常处理、流程终止 |
+| yellow/fef9c3 | 检测、决策、待定 | 条件判断、分支决策节点 |
+| gray | 中性、底层、基础设施 | 基础设施层、空闲状态、辅助信息 |
 
 ---
 
@@ -151,13 +152,13 @@ h1 { text-align: center; font-size: 22px; font-weight: 700; color: var(--blue-da
 
 ### 3. 角色栏（Actors / Roles）
 
-展示参与方：
+展示流程中的参与方/模块/角色：
 
 ```html
 <div class="roles">
-  <div class="role role-client">客户端<div class="role-label">sing-box 出站</div></div>
-  <div class="role role-server">服务端<div class="role-label">sing-box 入站</div></div>
-  <div class="role role-third">外部系统<div class="role-label">说明</div></div>
+  <div class="role role-client">调用方<div class="role-label">前端/客户端</div></div>
+  <div class="role role-server">处理方<div class="role-label">后端服务</div></div>
+  <div class="role role-third">外部系统<div class="role-label">第三方API</div></div>
 </div>
 ```
 
@@ -175,7 +176,7 @@ h1 { text-align: center; font-size: 22px; font-weight: 700; color: var(--blue-da
 
 ### 4. 步骤流程（Numbered Flow）
 
-带连接线的有序步骤，适合连接建立、请求处理等顺序流程：
+带连接线的有序步骤，适合任何顺序执行的流程（如请求处理、函数调用链、算法步骤等）：
 
 ```html
 <div class="flow">
@@ -259,19 +260,19 @@ h1 { text-align: center; font-size: 22px; font-weight: 700; color: var(--blue-da
 
 ---
 
-### 6. 协议栈（Stack Layers）
+### 6. 层次结构（Stack Layers）
 
-展示分层协议结构（自上而下）：
+展示分层架构（自上而下），适用于技术栈、调用层次、模块分层等：
 
 ```html
 <div class="stack-wrap">
   <div class="stack-col">
-    <div class="stack-label">客户端</div>
-    <div class="stack-layer sl-1"><span class="sl-name">应用层</span><span class="sl-detail">HTTP / TLS</span></div>
-    <div class="stack-layer sl-2"><span class="sl-name">XTLS Vision</span><span class="sl-detail">flow=xtls-rprx-vision</span></div>
-    <div class="stack-layer sl-3"><span class="sl-name">VLESS</span><span class="sl-detail">UUID + 地址</span></div>
-    <div class="stack-layer sl-4"><span class="sl-name">Reality TLS</span><span class="sl-detail">uTLS + ECDH</span></div>
-    <div class="stack-layer sl-5"><span class="sl-name">TCP</span><span class="sl-detail">:443</span></div>
+    <div class="stack-label">前端</div>
+    <div class="stack-layer sl-1"><span class="sl-name">UI 组件</span><span class="sl-detail">React / Vue</span></div>
+    <div class="stack-layer sl-2"><span class="sl-name">状态管理</span><span class="sl-detail">Redux / Pinia</span></div>
+    <div class="stack-layer sl-3"><span class="sl-name">API 层</span><span class="sl-detail">Axios / Fetch</span></div>
+    <div class="stack-layer sl-4"><span class="sl-name">网络层</span><span class="sl-detail">HTTP / WebSocket</span></div>
+    <div class="stack-layer sl-5"><span class="sl-name">传输层</span><span class="sl-detail">TCP / UDP</span></div>
   </div>
   <!-- 右侧对称列 -->
 </div>
@@ -293,22 +294,22 @@ h1 { text-align: center; font-size: 22px; font-weight: 700; color: var(--blue-da
 
 ---
 
-### 7. 数据包字段条带（Packet Field Strip）
+### 7. 数据结构条带（Field Strip）
 
-展示协议数据包的字节级字段布局，是本 skill 的核心组件：
+展示数据结构的字段布局，适用于数据模型、消息格式、配置结构、API 请求/响应体等：
 
 ```html
 <div class="pkt-row">
   <!-- fw-xs=52px  fw-s=80px  fw-m=120px  fw-l=180px  fw-xl=flex:1  fw-2xl=flex:2 -->
   <div class="pkt-field fw-xs fc-tcp">
     <span class="fn">字段名</span>
-    <span class="fv">0x16</span>
-    <span class="fb">说明/字节数</span>
+    <span class="fv">类型</span>
+    <span class="fb">说明</span>
   </div>
   <div class="pkt-field fw-xl fc-tls">
-    <span class="fn">Extensions</span>
+    <span class="fn">内容区</span>
     <span class="fv">变长</span>
-    <span class="fb">含 ShortID</span>
+    <span class="fb">详细描述</span>
   </div>
   <!-- 高亮特殊字段用 fc-hl -->
   <div class="pkt-field fw-l fc-hl">
@@ -321,12 +322,12 @@ h1 { text-align: center; font-size: 22px; font-weight: 700; color: var(--blue-da
 
 **字段背景色：**
 ```css
-.fc-tcp     { background: #fff7ed; }   /* TCP/网络层 */
-.fc-tls     { background: #eff6ff; }   /* TLS/加密层 */
-.fc-reality { background: #f0fdf4; }   /* Reality/握手 */
-.fc-vless   { background: var(--purple-light); }  /* VLESS 协议 */
-.fc-vision  { background: #fef9c3; }   /* XTLS Vision */
-.fc-inner   { background: #f1f5f9; }   /* 内层数据 */
+.fc-tcp     { background: #fff7ed; }   /* 基础层/底层 */
+.fc-tls     { background: #eff6ff; }   /* 核心层/主要模块 */
+.fc-reality { background: #f0fdf4; }   /* 辅助层/中间件 */
+.fc-vless   { background: var(--purple-light); }  /* 业务逻辑层 */
+.fc-vision  { background: #fef9c3; }   /* 决策/检测层 */
+.fc-inner   { background: #f1f5f9; }   /* 内部数据 */
 .fc-hl      { background: #fce7f3; }   /* 高亮/关键字段 */
 .fc-data    { background: var(--gray-light); }    /* 通用数据 */
 ```
@@ -358,14 +359,14 @@ h1 { text-align: center; font-size: 22px; font-weight: 700; color: var(--blue-da
 
 ---
 
-### 8. 解析流程（Parse Flow）
+### 8. 处理流程（Parse Flow）
 
-展示服务端逐层解析数据包的过程，配合伪代码：
+展示逐层/逐步处理数据的过程，配合伪代码，适用于请求处理管线、数据转换、编译流程等：
 
 ```html
 <div class="parse-flow">
   <div class="parse-step">
-    <div class="parse-layer" style="background:var(--blue-light);color:var(--blue-dark);">TLS 层</div>
+    <div class="parse-layer" style="background:var(--blue-light);color:var(--blue-dark);">验证层</div>
     <div class="parse-content">
       <div class="parse-action">动作标题</div>
       <div class="parse-detail">文字描述</div>
@@ -397,16 +398,16 @@ h1 { text-align: center; font-size: 22px; font-weight: 700; color: var(--blue-da
 
 ### 9. 双列对比（Dual Column）
 
-客户端 vs 服务端，或两种模式的并排对比：
+两个模块/角色/方案的并排对比：
 
 ```html
 <div class="parse-dual">
   <div>
-    <div class="parse-col-title pct-client">客户端：生成</div>
+    <div class="parse-col-title pct-client">方案 A / 发起方</div>
     <!-- 内容 -->
   </div>
   <div>
-    <div class="parse-col-title pct-server">服务端：解析</div>
+    <div class="parse-col-title pct-server">方案 B / 接收方</div>
     <!-- 内容 -->
   </div>
 </div>
@@ -421,18 +422,18 @@ h1 { text-align: center; font-size: 22px; font-weight: 700; color: var(--blue-da
 
 ---
 
-### 10. 连接生命周期状态机（Lifecycle）
+### 10. 生命周期/状态机（Lifecycle）
 
-横向状态条，带状态转移箭头：
+横向状态条，带状态转移箭头，适用于任何有状态转换的场景（对象生命周期、订单状态流转、任务调度等）：
 
 ```html
 <div class="lifecycle">
-  <div class="lc-item"><div class="lc-node lc-idle">Idle<div class="lc-sub">等待</div></div></div>
+  <div class="lc-item"><div class="lc-node lc-idle">初始化<div class="lc-sub">等待</div></div></div>
   <div class="lc-arrow">→</div>
-  <div class="lc-item"><div class="lc-node lc-tcp">TCP<br>Connecting<div class="lc-sub">三次握手</div></div></div>
+  <div class="lc-item"><div class="lc-node lc-tcp">处理中<div class="lc-sub">执行任务</div></div></div>
   <div class="lc-arrow">→</div>
   <!-- 更多状态 -->
-  <div class="lc-item"><div class="lc-node lc-close">Closed<div class="lc-sub">FIN/RST</div></div></div>
+  <div class="lc-item"><div class="lc-node lc-close">已结束<div class="lc-sub">清理资源</div></div></div>
 </div>
 <!-- 分支说明 -->
 <div class="lc-branch-wrap">
@@ -443,7 +444,7 @@ h1 { text-align: center; font-size: 22px; font-weight: 700; color: var(--blue-da
 </div>
 ```
 
-**状态颜色（可根据语义自定义 style）：**
+**状态颜色（可根据语义自定义 style，类名仅为历史命名，可用于任意状态语义）：**
 ```css
 .lifecycle { display: flex; align-items: stretch; gap: 0; overflow-x: auto; padding-bottom: 4px; }
 .lc-item { display: flex; align-items: stretch; flex-shrink: 0; }
@@ -466,17 +467,17 @@ h1 { text-align: center; font-size: 22px; font-weight: 700; color: var(--blue-da
 
 ### 11. 数据流箭头（Data Flow Arrow）
 
-展示数据在各节点间的传输路径：
+展示数据/请求在各节点间的传输路径：
 
 ```html
 <div class="df-row">
-  <div class="df-node df-client">客户端<br><span style="font-size:10px;font-weight:400">角色说明</span></div>
+  <div class="df-node df-client">发起方<br><span style="font-size:10px;font-weight:400">模块说明</span></div>
   <div class="df-arrow">
     <div class="df-line df-pass-line" style="position:relative;">
       <span style="position:absolute;top:-15px;left:50%;transform:translateX(-50%);font-size:10px;color:var(--green-dark);white-space:nowrap;background:#fff;padding:1px 4px;border-radius:3px;">标签文字</span>
     </div>
   </div>
-  <div class="df-node df-server">服务端</div>
+  <div class="df-node df-server">接收方</div>
 </div>
 ```
 
@@ -525,14 +526,16 @@ h1 { text-align: center; font-size: 22px; font-weight: 700; color: var(--blue-da
 
 | 内容类型 | 推荐组件组合 |
 |---------|-------------|
-| 协议连接流程 | 角色栏 + 步骤流程 + 分叉分支 + 生命周期 |
-| 数据包格式 | 数据包字段条带 + 嵌套展开 + 解析流程 |
-| 客户端/服务端对称分析 | 协议栈 + 双列对比 + 解析流程 |
-| 数据转发路径 | 数据流箭头（多行） |
+| 代码执行流程 | 角色栏 + 步骤流程 + 分叉分支 |
+| 请求处理管线 | 步骤流程 + 处理流程 + 分叉分支 |
+| 数据模型/结构 | 数据结构条带 + 嵌套展开 + 处理流程 |
+| 前后端交互 | 层次结构 + 双列对比 + 处理流程 |
+| 数据流转路径 | 数据流箭头（多行） |
 | 系统架构 | 角色栏 + 数据流箭头 + 分叉分支 |
-| 状态机 | 生命周期状态条 + 分支说明 |
+| 状态机/生命周期 | 生命周期状态条 + 分支说明 |
+| 算法步骤 | 步骤流程 + 分叉分支 + 处理流程 |
 
-**复杂主题**（如 VLESS + Reality + Vision）可将多种类型组合在多个卡片中。
+**复杂主题**可将多种类型组合在多个卡片中，灵活搭配。
 
 ---
 

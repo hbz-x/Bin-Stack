@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Code Onboarding"
+  short_description: "Generate a 10-minute codebase guide with Mermaid diagrams."
+  default_prompt: "Use $project-code-onboarding to analyze this repository and write a concise Markdown onboarding document covering architecture, APIs, main runtime flows, and necessary Mermaid diagrams."

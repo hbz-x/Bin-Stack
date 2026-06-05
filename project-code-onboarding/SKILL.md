@@ -47,10 +47,9 @@ If an onboarding document already exists, run in **incremental mode**: diff the 
    - Mark inferred behavior explicitly when code is indirect or conventions are doing work.
 
 5. Add necessary Mermaid diagrams.
-   - Include one architecture diagram by default.
-   - Include 1-3 runtime flow diagrams when the flows are important or non-obvious.
-   - Prefer no more than 4 diagrams total for a 10-minute onboarding document.
+   - Include one architecture diagram by default; add 1-3 runtime flow diagrams when flows are important or non-obvious; no more than 4 total.
    - Place each diagram near the section it explains, not in a detached appendix.
+   - Follow `reference/mermaid.md` for the diagram set, syntax rules, and validation.
 
 6. Write the document.
    - Prefer a clear, dense engineering brief over exhaustive reference docs.
@@ -72,123 +71,11 @@ If an onboarding document already exists, run in **incremental mode**: diff the 
 
 ## Document Structure
 
-Use this structure unless the repo strongly suggests a better one:
-
-````markdown
-# Project Onboarding: <Project Name>
-
-## 1. What This Project Does
-One short paragraph on product/domain purpose, runtime shape, and primary users/callers.
-
-## 2. 10-Minute Mental Model
-- <3-7 bullets that explain the core architecture in plain engineering language>
-
-## 3. Code Map
-| Area | Path | Responsibility | Notes |
-| --- | --- | --- | --- |
-
-## 4. Architecture
-Describe the major components and their dependencies. Include the default Mermaid architecture diagram.
-
-```mermaid
-flowchart LR
-    caller["Caller or UI"] --> entry["Entry Point"]
-    entry --> core["Core Application"]
-    core --> data["Data or State"]
-    core --> external["External Services"]
-```
-
-## 5. Entry Points and Lifecycle
-| Entry point | Source | What happens first | Downstream path |
-| --- | --- | --- | --- |
-
-## 6. Interfaces
-### Exposed Interfaces
-| Interface | Source | Inputs | Outputs / Side Effects |
-| --- | --- | --- | --- |
-
-### Consumed Interfaces
-| Dependency | Source | Purpose | Contract / Config |
-| --- | --- | --- | --- |
-
-## 7. Main Runtime Flows
-### Flow: <Name>
-```mermaid
-sequenceDiagram
-    participant A as Trigger
-    participant B as Entry Point
-    participant C as Core Logic
-    participant D as Output
-    A->>B: Starts flow
-    B->>C: Delegates work
-    C->>D: Produces result
-```
-
-1. <Trigger and source file>
-2. <Major processing step>
-3. <Persistence/network/UI/output step>
-
-## 8. Data and State
-Summarize persistent data, in-memory state, schemas/models, caches, migrations, and ownership.
-
-## 9. Build, Run, and Test
-| Task | Command | Notes |
-| --- | --- | --- |
-
-## 10. Where To Change Things
-| Goal | Start Here | Watch Out For |
-| --- | --- | --- |
-
-## 11. Open Questions / Risks
-Only include unclear or risky areas found during code reading.
-````
+Follow `templates/onboarding-template.md` for the section layout. Use it unless the repo strongly suggests a better structure; for multi-service repos, repeat the per-service sections.
 
 ## Mermaid Diagrams
 
-Use Mermaid diagrams as onboarding accelerators, not decoration. Every diagram must answer one concrete engineering question.
-
-Default diagram set:
-
-- Architecture diagram: show callers, entry points, main modules/services, persistence, and external systems. Use `flowchart LR` for most systems; use `flowchart TB` when the architecture is layered.
-- Primary runtime flow: show the most important user/request/job path. Use `sequenceDiagram` when multiple actors exchange calls; use `flowchart TD` when control flow and branching matter more.
-- Data/state flow: add only when persistence, caches, queues, or sync are central to understanding the project. Use `flowchart LR`.
-- Deployment/build flow: add only when build, packaging, or runtime infrastructure is non-trivial.
-
-Mermaid syntax rules:
-
-- Wrap diagrams in fenced `mermaid` code blocks.
-- Use simple ASCII node IDs such as `api`, `service`, `db`, `worker`; put human labels inside quotes.
-- Avoid raw `1. Step` labels inside nodes because some renderers parse them as Markdown lists. Use `Step 1:`, `(1)`, or unnumbered labels.
-- Use `subgraph id["Display Name"]` when grouping components; refer to the ID, not the display label.
-- Avoid quotes inside node labels. Use single words, colons, slashes, or hyphens instead.
-- Keep node labels short. Put detailed explanations in nearby prose or tables.
-- For Chinese / non-ASCII labels (common for these triggers): keep the node **ID** ASCII (`auth`, `db`) and put the Chinese text inside the quoted label, e.g. `auth["登录鉴权"]`. Avoid `()`, `[]`, `:`, `;`, and quotes *inside* a label, as they break parsing in several renderers; use a hyphen or wording instead.
-- Do not invent components to make a diagram look complete. If a relationship is inferred, label the surrounding prose with `Inferred:`.
-
-Common templates:
-
-```mermaid
-flowchart LR
-    user["User or Client"] --> route["Route or Command"]
-    route --> app["Application Service"]
-    app --> domain["Domain Logic"]
-    domain --> store["Storage"]
-    app --> ext["External API"]
-```
-
-```mermaid
-sequenceDiagram
-    participant Client
-    participant Entry
-    participant Service
-    participant Store
-    Client->>Entry: Request or command
-    Entry->>Service: Validate and delegate
-    Service->>Store: Read or write state
-    Store-->>Service: Result
-    Service-->>Entry: Response model
-    Entry-->>Client: Output
-```
+See `reference/mermaid.md` for the diagram set, syntax rules (including Chinese/non-ASCII labels), validation command, and copy-paste templates.
 
 ## Investigation Patterns
 

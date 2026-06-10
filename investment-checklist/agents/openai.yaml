@@ -1,0 +1,4 @@
+interface:
+  display_name: "Investment Checklist"
+  short_description: "Value-investing decision checklist — stress-test your thesis before you act"
+  default_prompt: "Use $investment-checklist — walk me through the five dimensions (fundamental principles, circle of competence, margin of safety, business quality, fiduciary duty) for an investment decision."

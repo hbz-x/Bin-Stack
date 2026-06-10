@@ -1,0 +1,4 @@
+interface:
+  display_name: "Feynman Technique"
+  short_description: "You explain, I question — expose your knowledge gaps through teach-back"
+  default_prompt: "Use $feynman-technique — I'll explain a concept and you ask me probing questions to find where my understanding breaks down."

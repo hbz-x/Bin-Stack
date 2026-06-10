@@ -1,0 +1,4 @@
+interface:
+  display_name: "Munger Mental Models"
+  short_description: "Stress-test decisions with Munger's latticework"
+  default_prompt: "Use $munger-mental-models to invert and stress-test this decision with Munger's multidisciplinary mental-model framework."

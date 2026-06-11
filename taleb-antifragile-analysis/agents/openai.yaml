@@ -1,0 +1,4 @@
+interface:
+  display_name: "Taleb Antifragile Analysis"
+  short_description: "Analyze decisions through fragility, convexity, and tail risk"
+  default_prompt: "Use $taleb-antifragile-analysis to analyze this decision through fragility, convexity, tail risk, and antifragility."

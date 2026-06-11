@@ -1,0 +1,4 @@
+interface:
+  display_name: "Soros Reflexivity Analysis"
+  short_description: "Analyze fragile markets with Soros-style reflexivity"
+  default_prompt: "Use $soros-reflexivity-analysis to analyze this market or token with Soros-style reflexivity, defense-cost, and asymmetric-payoff thinking."

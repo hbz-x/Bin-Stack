@@ -1,0 +1,4 @@
+interface:
+  display_name: "Peter Lynch Stock Analysis"
+  short_description: "Peter Lynch style stock thesis checklist"
+  default_prompt: "Use $peter-lynch-stock-analysis to analyze a company with Peter Lynch-style stock selection: classify the stock, build the story, check fundamentals, and identify follow-up research."

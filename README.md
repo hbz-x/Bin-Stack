@@ -9,6 +9,7 @@ A local collection of Codex skills and skill drafts — reusable AI-assisted eng
 | `project-code-onboarding/` | Active skill | Generates a concise Markdown onboarding guide for a codebase (architecture, entry points, interfaces, runtime flows, Mermaid diagrams). |
 | `html-tech-diagram/` | Active skill | Generates self-contained HTML technical diagrams for flows, state machines, and architecture. |
 | `taleb-antifragile-analysis/` | Active skill | Analyzes decisions, careers, companies, and strategies through fragility, tail risk, convexity, optionality, and antifragility. |
+| `elon-musk-first-principles/` | Active skill | Stress-tests ambitious engineering, manufacturing, product, and execution plans with first-principles reasoning, the Idiot Index, and Musk's five-step algorithm. |
 | `skills-draft/` | Local drafts | Staging area for candidate skills before promotion. Ignored by git. |
 
 Each skill's own `SKILL.md` is the source of truth for what it does and when it triggers — this README does not duplicate that.

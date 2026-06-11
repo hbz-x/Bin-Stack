@@ -1,0 +1,4 @@
+interface:
+  display_name: "Elon Musk First Principles"
+  short_description: "First-principles engineering stress tests"
+  default_prompt: "Use $elon-musk-first-principles to stress-test this plan with first-principles reasoning, the Idiot Index, and Musk's five-step engineering algorithm."

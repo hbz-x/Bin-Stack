@@ -1,6 +1,6 @@
 ---
 name: taleb-antifragile-analysis
-description: "Taleb-style antifragile analysis: stress-test decisions, careers, companies, business models, products, strategies, and life plans through fragility, robustness, antifragility, tail risk, convexity, optionality, barbell strategy, skin in the game, Lindy effects, and via negativa. Use when the user says \"塔勒布\", \"反脆弱\", \"黑天鹅\", \"厚尾\", \"杠铃策略\", \"凸性\", \"skin in the game\", \"Lindy\", \"Taleb\", \"antifragile\", \"tail risk\", \"barbell strategy\", or asks to analyze career planning, company/business resilience, strategy, risk exposure, or decisions in a Taleb-style framework. For individual stock buy/hold/sell decisions, prefer an investment checklist unless the user explicitly wants the Taleb lens. Do NOT use for simple biography, precise forecasts, technical trading, or advice that requires certainty about unpredictable events."
+description: "Taleb-style antifragile analysis: stress-test decisions, careers, companies, business models, products, strategies, and life plans through fragility, robustness, antifragility, tail risk, convexity, optionality, barbell strategy, skin in the game, Lindy effects, and via negativa. Use when the user says \"塔勒布\", \"反脆弱\", \"黑天鹅\", \"厚尾\", \"杠铃策略\", \"凸性\", \"skin in the game\", \"Lindy\", \"Taleb\", \"antifragile\", \"tail risk\", \"barbell strategy\", or frames a question around surviving shocks, ruin risk, downside exposure, or benefiting from disorder. Routing: for individual stock buy/hold/sell decisions, prefer the investment-checklist skill; for broad decision analysis with no explicit risk/fragility angle, prefer the munger-mental-models skill; for currency pegs, stablecoin depegs, or boom-bust speculative attacks, prefer the soros-reflexivity-analysis skill. Do NOT use for simple biography, precise forecasts, technical trading, or advice that requires certainty about unpredictable events."
 ---
 
 # Taleb Antifragile Analysis
@@ -143,6 +143,8 @@ Before adding complexity, remove fragility:
 
 ### General Taleb-Style Analysis
 
+The section headers below are written in Chinese as the default for Chinese-language conversations. Always translate the headers into the user's language; keep the structure, not the literal Chinese text.
+
 ```markdown
 **结论先行**
 [Fragile / robust / antifragile / mixed, with the main reason.]
@@ -183,46 +185,12 @@ Before adding complexity, remove fragility:
 - [One concrete action]
 ```
 
-### Career Planning Lens
+### Domain Lenses
 
-For career questions, focus on survival, transferability, and upside options.
+For domain-specific questions, read the matching reference file before writing the analysis:
 
-Analyze:
-
-- Career bankruptcy risks: single employer, narrow internal skills, debt burden, reputation damage, health damage, visa/platform dependence, or no cash buffer.
-- Survival base: transferable skills, savings runway, health, credibility, basic network, and reliable income.
-- High-upside bets: writing, open-source work, independent products, consulting, teaching, cross-domain relationships, new technology exposure, or entrepreneurial experiments.
-- Lindy skills: writing, selling, negotiation, programming, statistics, judgment of incentives, finance basics, public communication, deep reading, and cross-cultural communication.
-- Via negativa: stop status spending, fake networking, no-compounding tasks, chronic overwork, and trend-chasing that destroys focus.
-
-Keep the practical formula visible:
-
-```text
-稳住底盘，封住下行，保留现金和健康，用小成本持续下注高上行机会，
-把技能、作品、声誉、人脉做成复利资产。
-```
-
-### Company And Business Analysis Lens
-
-For company or business-model questions, focus on whether the company survives shocks and can benefit from disorder.
-
-Analyze:
-
-- Survival: debt, cash runway, free cash flow, fixed costs, customer/supplier/channel concentration, refinancing dependence, margin buffer, and operational redundancy.
-- Hidden fragility: smooth profits, aggressive accounting, receivables growing faster than sales, inventory build, off-balance-sheet obligations, regulatory arbitrage, subsidies, or complex financial engineering.
-- Convexity: low marginal cost, scalable software or platform economics, brand power, network effects, low-cost product experiments, and optional expansion paths.
-- Crisis upside: can the company buy assets cheaply, take share when competitors weaken, negotiate better terms, or satisfy demand that rises under stress?
-- Management skin in the game: ownership, compensation, dilution, insider selling, risk transfer, and whether managers share downside.
-- Lindy durability: long-lived demand, trust, brand, distribution, process know-how, and history of surviving cycles.
-
-Useful company questions:
-
-- Under what scenario does this company die?
-- What tail event is most dangerous?
-- Are risks hidden in the balance sheet, contracts, or business model?
-- Does disorder eliminate it, spare it, or strengthen it?
-- Is upside open-ended enough to justify the downside?
-- Do managers bear consequences alongside owners, customers, and employees?
+- Career planning, job changes, skill investment: read [references/career-lens.md](references/career-lens.md).
+- Company, business model, or organizational resilience: read [references/company-lens.md](references/company-lens.md).
 
 ## Style Guidelines
 
